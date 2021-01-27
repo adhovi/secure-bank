@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure-Bank</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div id="login-area">
+        <div>
+            <h1 class="text-center mb-5">Welcome To Secure Bank</h1>
+            <div id="submit-area" class="glass-card">
+                <h3 class="mb-3">Login</h3>
+                <input type="email" name="" id="email" placeholder="Email" class="mb-3 form-control">
+                <input type="password" name="" id="password" placeholder="Password" class=" mb-3 form-control">
+                <span id="invalid-show"></span>
+                <button id="login-btn" class="btn btn-new-style">Enter</button>
+            </div>
+        </div>
+    </div>
+    <div id="transaction-area">
+        <div>
+            <h1 class="text-center mb-5">Transaction Updates Here</h1>
+            <div id="info-area" class="row">
+                <div class="col-md-4">
+                    <div class="deposit status mb-3 p-4">
+                        <h4>Deposit</h4>
+                        <h2>$ <span id="current-deposit">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="withdraw status mb-3 p-4">
+                        <h4>Withdraw</h4>
+                        <h2>$ <span id="current-withdraw">00</span></h2>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="balance status p-4 ">
+                        <h4>Balance</h4>
+                        <h2>$ <span id="current-balance">00</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-6 mb-5">
+                    <div id="deposit-area">
+                        <h3 class="mb-3">Deposit</h3>
+                        <input type="text" name="" id="deposit-amount" placeholder="Enter Deposit Amount"
+                            class="mb-3 form-control">
+                        <span id="invalid-deposit-amount"></span>
+                        <button id="deposit-btn" class="btn btn-new-style">Deposit</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="withdraw-area">
+                        <h3 class="mb-3">Withdraw</h3>
+                        <input type="text" name="" id="withdraw-amount" placeholder="Enter Withdraw Amount"
+                            class="mb-3 form-control">
+                        <span id="invalid-withdraw-amount"></span>
+                        <button id="withdraw-btn" class="btn btn-new-style">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cricle"></div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
