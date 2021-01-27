@@ -8,8 +8,7 @@ loginButton.addEventListener('click', function () {
 
         const transactionArea = document.getElementById('transaction-area')
         transactionArea.style.display = 'block'
-    }
-    else {
+    } else {
         const invalidShow = document.getElementById('invalid-show')
         invalidShow.style.color = 'red'
         invalidShow.innerText = 'Invalid Email or Password\n Use Email:abcd@email.com & Pass:1234 to Login\n\n'
@@ -28,40 +27,43 @@ loginButton.addEventListener('click', function () {
 
 const logoutButton = document.getElementById('logout')
 logoutButton.addEventListener('click', function () {
-        const logoutArea = document.getElementById('login-area')
-        logoutArea.style.display = 'block';
+    const logoutArea = document.getElementById('login-area')
+    logoutArea.style.display = 'block';
 
-        const transactionAreaAfterLogout = document.getElementById('transaction-area')
-        transactionAreaAfterLogout.style.display = 'none'
+    const transactionAreaAfterLogout = document.getElementById('transaction-area')
+    transactionAreaAfterLogout.style.display = 'none'
 
 })
 
 
 document.getElementById('deposit-amount').addEventListener('click', function () {
-    document.getElementById('invalid-deposit-amount').innerText = ''
-    document.getElementById('deposit-amount').value = ''
-    document.getElementById('invalid-withdraw-amount').innerText = ''
-    document.getElementById('withdraw-amount').value = ''
+    if (document.getElementById('invalid-deposit-amount').innerText === 'Please Enter a valid amount.\n\n' || document.getElementById('invalid-withdraw-amount').innerText === 'Please Enter a valid amount.\n\n' || document.getElementById('invalid-withdraw-amount').innerText === 'You current balance is smaller than withdrawal amount.\n\n') {
+        document.getElementById('invalid-deposit-amount').innerText = ''
+        document.getElementById('deposit-amount').value = ''
+        document.getElementById('invalid-withdraw-amount').innerText = ''
+        document.getElementById('withdraw-amount').value = ''
+    }
 })
 
 document.getElementById('withdraw-amount').addEventListener('click', function () {
+    if (document.getElementById('invalid-deposit-amount').innerText === 'Please Enter a valid amount.\n\n' || document.getElementById('invalid-withdraw-amount').innerText === 'Please Enter a valid amount.\n\n' || document.getElementById('invalid-withdraw-amount').innerText === 'You current balance is smaller than withdrawal amount.\n\n') {
+        document.getElementById('invalid-withdraw-amount').innerText = ''
+        document.getElementById('withdraw-amount').value = ''
 
-    document.getElementById('invalid-withdraw-amount').innerText = ''
-    document.getElementById('withdraw-amount').value = ''
-
-    document.getElementById('invalid-deposit-amount').innerText = ''
-    document.getElementById('deposit-amount').value = ''
+        document.getElementById('invalid-deposit-amount').innerText = ''
+        document.getElementById('deposit-amount').value = ''
+    }
 })
 
 
 const depositButton = document.getElementById('deposit-btn')
 depositButton.addEventListener('click', function () {
-    if (isNaN(document.getElementById('deposit-amount').value) || document.getElementById('deposit-amount').value == '') {
+    if (isNaN(document.getElementById('deposit-amount').value) || document.getElementById('deposit-amount').value == '' || parseFloat(document.getElementById('deposit-amount').value) < 0) {
         const invalidDepositAmount = document.getElementById('invalid-deposit-amount')
         invalidDepositAmount.style.color = 'red'
         invalidDepositAmount.innerText = 'Please Enter a valid amount.\n\n'
-    }
-    else {
+
+    } else {
         const depositAmount = document.getElementById('deposit-amount').value
 
         const currentDeposit = document.getElementById('current-deposit').innerText
@@ -91,34 +93,32 @@ withdrawButton.addEventListener('click', function () {
 
 
 
-    if (isNaN(document.getElementById('withdraw-amount').value) || document.getElementById('withdraw-amount').value == '') {
+    if (isNaN(document.getElementById('withdraw-amount').value) || document.getElementById('withdraw-amount').value == '' || parseFloat(document.getElementById('withdraw-amount').value) < 0) {
         const invalidWithdrawAmount = document.getElementById('invalid-withdraw-amount')
         invalidWithdrawAmount.style.color = 'red'
         invalidWithdrawAmount.innerText = 'Please Enter a valid amount.\n\n'
 
-    }
-    else {
+    } else {
         if (parseFloat(document.getElementById('withdraw-amount').value) <= parseFloat(document.getElementById('current-balance').innerText)) {
             const withdrawAmount = document.getElementById('withdraw-amount').value
 
-        const currentWithdraw = document.getElementById('current-withdraw').innerText
+            const currentWithdraw = document.getElementById('current-withdraw').innerText
 
-        const totalWithdraw = parseFloat(withdrawAmount) + parseFloat(currentWithdraw)
+            const totalWithdraw = parseFloat(withdrawAmount) + parseFloat(currentWithdraw)
 
-        document.getElementById('current-withdraw').innerText = totalWithdraw
+            document.getElementById('current-withdraw').innerText = totalWithdraw
 
-        const balanceInWithdraw = document.getElementById('current-balance').innerText
-        totalBalanceInWithdraw = parseFloat(balanceInWithdraw) - parseFloat(withdrawAmount)
-        document.getElementById('current-balance').innerText = totalBalanceInWithdraw
+            const balanceInWithdraw = document.getElementById('current-balance').innerText
+            totalBalanceInWithdraw = parseFloat(balanceInWithdraw) - parseFloat(withdrawAmount)
+            document.getElementById('current-balance').innerText = totalBalanceInWithdraw
 
-        document.getElementById('withdraw-amount').value = ''
+            document.getElementById('withdraw-amount').value = ''
 
-        }
-        else{
+        } else {
             const invalidWithdrawAmount = document.getElementById('invalid-withdraw-amount')
-        invalidWithdrawAmount.style.color = 'red'
-        invalidWithdrawAmount.innerText = 'You current balance is smaller than withdrawal amount.\n\n'
+            invalidWithdrawAmount.style.color = 'red'
+            invalidWithdrawAmount.innerText = 'You current balance is smaller than withdrawal amount.\n\n'
         }
-        
+
     }
 })
