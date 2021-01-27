@@ -6,7 +6,7 @@ loginButton.addEventListener('click', function () {
         const loginArea = document.getElementById('login-area')
         loginArea.style.display = 'none';
 
-        transactionArea = document.getElementById('transaction-area')
+        const transactionArea = document.getElementById('transaction-area')
         transactionArea.style.display = 'block'
     }
     else {
@@ -24,6 +24,16 @@ loginButton.addEventListener('click', function () {
             invalidShow.innerText = ''
         })
     }
+})
+
+const logoutButton = document.getElementById('logout')
+logoutButton.addEventListener('click', function () {
+        const logoutArea = document.getElementById('login-area')
+        logoutArea.style.display = 'block';
+
+        const transactionAreaAfterLogout = document.getElementById('transaction-area')
+        transactionAreaAfterLogout.style.display = 'none'
+
 })
 
 

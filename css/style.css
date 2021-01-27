@@ -31,14 +31,17 @@ body::after{
     
 }
 
-
+#logout{
+}
 
 #login-area{
     padding: 10% 25%;
+    display: none;
 }
 #transaction-area{
     padding: 5% 15%;
-    display: none;
+    height: 100vh;
+    /* display: none; */
 }
 #submit-area,#deposit-area,#withdraw-area,.deposit,.withdraw,.balance{
     padding: 40px 60px;
